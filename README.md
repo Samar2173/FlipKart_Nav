@@ -23,5 +23,10 @@ dictionary with keys as number of stop-points/checkpoints from 0 to n
 n being len(dictionary.keys) - 1 and each key having a coressponding 
 coordinate value in (x, y) format.
 
-## Images
+## Images Round 1 Only
+
+### Cropped Input Image
 ![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Round1_Crop.png?raw=true)
+
+### Blank withc Contours and center points
+![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Blank_1.png)
