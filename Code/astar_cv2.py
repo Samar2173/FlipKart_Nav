@@ -5,6 +5,7 @@ import cv2
 class A_Star:
     def __init__(self, filename, start, goal):
         # Converting csv to dictionary
+        self.filename = filename
         self.df = pd.read_csv(filename)
         self.dict = self.csv2Dict()
 
@@ -28,10 +29,10 @@ class A_Star:
 
         self.df = self.df.drop_duplicates()
         self.df.sort_values(by = 'x')
-        df_new = self.df.groupby(['x']).y.count()[lambda k: k < 5]
-        values = df_new.index.to_list()
-        self.df = self.df[self.df.x.isin(values) == False]
-        self.df.to_csv(filename, header = True, index = False)
+        # df_new = self.df.groupby(['x']).y.count()[lambda k: k < 5]
+        # values = df_new.index.to_list()
+        # self.df = self.df[self.df.x.isin(values) == False]
+        self.df.to_csv(self.filename, header = True, index = False)
         self.arr = self.df.values.tolist()
         self.arr.sort()
         cordDict = {i[0] : [j[1] for j in self.arr if j[0] == i[0]] for i in self.arr}
@@ -112,7 +113,7 @@ class A_Star:
         neighborList = []
         
         xC, yC = self.arrayCord(current)
-        print((xC, yC))
+        # print((xC, yC))
         keys = list(self.dict.keys())
         # For x when y is constant
         if xC in keys:
@@ -125,7 +126,7 @@ class A_Star:
             elif loc == len(keys) -1:
                 x_list = [keys[loc - 1], keys[loc]]
         
-        print(x_list)
+        # print(x_list)
         # For y when x is constant
         y_all = []
         for i in x_list:
@@ -150,17 +151,17 @@ class A_Star:
             
             y_list = self.neighborClean(y_list, self.dict[i][loc])
             y_all.extend(y_list)
-        print(i, y_list)
+        # print(i, y_list)
         neighborList = [self.arrayCord((j, k)) for j in x_list for k in set((y_all))]
         
         neighborSet = set((neighborList))
-        print((xC, yC) in neighborSet)
+        # print((xC, yC) in neighborSet)
         return neighborSet
 
     def hVal(self):
         
         neighbors_list = self.neighbors(self.pathList[-1])
-        print(neighbors_list)
+        # print(neighbors_list)
         h_dict = {}
         for i in neighbors_list:
             dist = self.euclidean(i, self.goal)
@@ -191,45 +192,43 @@ class A_Star:
                 return False
 
         return True
-        
 
-img = cv2.imread(r'Pics\Blank2.png')
-filename = 'Files\Co-ordinates.csv'
-inp_1 = (600, 1005)
-inp_2  = (108, 402)
+def findPath(img_path, file_path, start, goal):
+    
+    path = A_Star(file_path, start, goal)
 
+    flag = True
+    while flag:
+        flag = path.pathCalc()
 
-path = A_Star(filename, inp_1, inp_2)
+    img = cv2.imread(img_path)
+    # print(path.pathDict)
 
-flag = True
-while flag:
-    flag = path.pathCalc()
+    for i in path.pathDict.values():
+        cv2.circle(img, i, 5, (0, 250, 255), 10)
 
+    for i in (path.arrayCord(start), path.arrayCord(goal)):
+        cv2.putText(
+            img, #numpy array on which text is written
+            str(i), #text
+            i, #position at which writing has to start
+            cv2.FONT_HERSHEY_SIMPLEX, #font family
+            1, #font size
+            (255, 255, 255, 255), #font color
+            1)
 
-print(path.pathDict)
-for i in path.pathDict.values():
-    cv2.circle(img, i, 5, (0, 250, 255), 10)
-cv2.circle(img, inp_1, 5, (0, 250, 0), 5)
-cv2.circle(img, inp_2, 5, (0, 250, 0), 5)
+    cv2.imshow("image", img)
+    cv2.waitKey(0)
+    cv2.destroyAllWindows()
 
-cv2.putText(
-     img, #numpy array on which text is written
-     str(inp_1), #text
-     inp_1, #position at which writing has to start
-     cv2.FONT_HERSHEY_SIMPLEX, #font family
-     1, #font size
-     (255, 255, 255, 255), #font color
-     1)
+    return path.pathDict
 
-cv2.putText(
-     img, #numpy array on which text is written
-     str(inp_2), #text
-     inp_2, #position at which writing has to start
-     cv2.FONT_HERSHEY_SIMPLEX, #font family
-     1, #font size
-     (255, 255, 255, 255), #font color
-     1)
+if __name__ == '__main__':
 
-cv2.imshow("image", img)
-cv2.waitKey(0)
-cv2.destroyAllWindows()
+    img = r'Pics\Blank_1.png'
+    file = 'Files\Co-ordinates_1.csv'
+    inp_1 = (778, 114)
+    inp_2  = (207, 744)
+
+    findPath(img, file, inp_1, inp_2)
+    
