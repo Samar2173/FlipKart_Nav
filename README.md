@@ -26,7 +26,7 @@ coordinate value in (x, y) format.
 ## Images Round 1 Only
 
 ### Cropped Input Image
-![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Round1_Crop.png?raw=true)
+![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Round1_Crop.png)
 
-### Blank withc Contours and center points
+### Blank with Contours and center points
 ![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Blank_1.png)
