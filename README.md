@@ -30,3 +30,9 @@ coordinate value in (x, y) format.
 
 ### Blank with Contours and center points
 ![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Blank_1.png)
+
+### Path Output
+![Alt text](https://github.com/Samar2173/FlipKart_Nav/blob/main/Pics/Output_1.png)
+
+## Dictionary Output
+### Path Found... {0: (778, 114), 1: (700, 191), 2: (700, 271), 3: (700, 352), 4: (700, 432), 5: (700, 511), 6: (700, 588), 7: (621, 665), 8: (538, 744), 9: (457, 744), 10: (376, 744), 11: (291, 744), 12: (207, 744)}
