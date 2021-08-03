@@ -108,7 +108,6 @@ class A_Star:
         
         return cord_list
 
-########################################
     # Inclusive of digonals also
     def neighbors(self, current):
         # Only when current is part of array coordinates
@@ -161,51 +160,6 @@ class A_Star:
         neighborSet = set((neighborList))
         # print((xC, yC) in neighborSet)
         return neighborSet
-########################################
-
-    # Exclusive of digonals also
-    # def neighbors(self, current):
-    #     # Only when current is part of array coordinates
-    #     neighborList = []
-        
-    #     xC, yC = self.arrayCord(current)
-    #     # print((xC, yC))
-    #     keys = list(self.dict.keys())
-    #     # For x when y is constant
-    #     if xC in keys:
-    #         # print("In Keys", current)
-    #         loc = keys.index(xC)
-    #         if loc > 0 and loc < len(keys) - 1:
-    #             x_list = [keys[loc - 1], keys[loc], keys[loc + 1]]
-
-    #         elif loc == 0:
-    #             x_list = [keys[loc], keys[loc + 1]]
-
-    #         elif loc == len(keys) -1:
-    #             x_list = [keys[loc - 1], keys[loc]]
-            
-    #         neighborList.extend([self.arrayCord((i, yC)) for i in x_list])
-
-    #     loc = self.dict[xC].index(yC)
-    #     if loc > 0 and loc < len(self.dict[xC]) - 1:
-    #         y_list = [self.dict[xC][loc - 1], self.dict[xC][loc],  self.dict[xC][loc + 1]]
-
-    #     elif loc == 0:
-    #         y_list = [self.dict[xC][loc], self.dict[xC][loc + 1]]
-
-    #     # elif loc == 0 and len(self.dict[i]) >= 2:
-    #     #     y_list = [self.dict[xC][loc], self.dict[xC][loc + 1]]
-
-    #     # elif loc == 0 and len(self.dict[i]) < 2:
-    #     #     y_list = [self.dict[xC][loc]]
-
-    #     elif loc == len(self.dict[xC]) -1:
-    #         y_list = [self.dict[xC][loc - 1], self.dict[xC][loc]]
-
-    #     neighborList.extend([self.arrayCord((xC, i)) for i in y_list])
-    #     # print(neighborList)
-        
-    #     return set(neighborList)
 
     def hVal(self):        
         neighbors_list = self.neighbors(self.pathList[-1])

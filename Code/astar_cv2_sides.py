@@ -93,7 +93,6 @@ class A_Star:
         # print(current, (x2, y2))
         return round(res)
 
-    # Exclusive of digonals also
     def neighbors(self, current):
         # Only when current is part of array coordinates
         neighborList = []
