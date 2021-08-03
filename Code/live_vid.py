@@ -1,6 +1,6 @@
 import cv2
 from live_image import ImageProcess
-from astar_cv2 import findPath
+from astar_cv2_sides import findPath
 
 def main(file_path, img_path, startPoint, goalPoint, img_save_path = None):
     r_path = img_path

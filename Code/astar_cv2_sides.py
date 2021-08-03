@@ -1,4 +1,3 @@
-from queue import PriorityQueue
 import pandas as pd
 import cv2
 
@@ -93,61 +92,6 @@ class A_Star:
         res = ((x2 - x1) ** 2 + (y2 - y1) ** 2) ** 0.5
         # print(current, (x2, y2))
         return round(res)
-
-########################################
-    # Inclusive of digonals also
-    # def neighbors(self, current):
-    #     # Only when current is part of array coordinates
-    #     neighborList = []
-        
-    #     xC, yC = self.arrayCord(current)
-    #     # print((xC, yC))
-    #     keys = list(self.dict.keys())
-    #     # For x when y is constant
-    #     if xC in keys:
-    #         # print("In Keys", current)
-    #         loc = keys.index(xC)
-    #         if loc > 0 and loc < len(keys) - 1:
-    #             x_list = [keys[loc - 1], keys[loc], keys[loc + 1]]
-    #         elif loc == 0:
-    #             x_list = [keys[loc], keys[loc + 1]]
-    #         elif loc == len(keys) -1:
-    #             x_list = [keys[loc - 1], keys[loc]]
-        
-    #     # print(x_list)
-    #     # For y when x is constant
-    #     y_all = []
-    #     for i in x_list:
-
-    #         if yC in self.dict[i]:
-    #             loc = self.dict[i].index(yC)
-    #             yCI = yC
-    #         else:
-    #             _, yCI = self.arrayCord((i, yC))
-    #             if abs(yCI - yC)/max(yCI, yC) > 0.2:
-    #                 r = x_list.index(i)
-    #                 x_list.pop(r)
-    #                 continue
-            
-    #         loc = self.dict[i].index(yCI)
-    #         if loc > 0 and loc < len(self.dict[i]) - 1:
-    #             y_list = [self.dict[i][loc - 1], self.dict[i][loc],  self.dict[i][loc + 1]]
-    #         elif loc == 0 and len(self.dict[i]) >= 2:
-    #             y_list = [self.dict[i][loc], self.dict[i][loc + 1]]
-    #         elif loc == 0 and len(self.dict[i]) < 2:
-    #             y_list = [self.dict[i][loc]]
-    #         elif loc == len(self.dict[i]) -1:
-    #             y_list = [self.dict[i][loc - 1], self.dict[i][loc]]
-            
-    #         y_list = self.neighborClean(y_list, self.dict[i][loc])
-    #         y_all.extend(y_list)
-    #     # print(i, y_list)
-    #     neighborList = [self.arrayCord((j, k)) for j in x_list for k in set((y_all))]
-        
-    #     neighborSet = set((neighborList))
-    #     # print((xC, yC) in neighborSet)
-    #     return neighborSet
-########################################
 
     # Exclusive of digonals also
     def neighbors(self, current):
