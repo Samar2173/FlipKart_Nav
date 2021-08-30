@@ -87,15 +87,15 @@ class ImageProcess:
 if __name__ == '__main__':
 
     # Image Path
-    img_path = r'Pics\map_f_1.png'
+    img_path = r'GitFiles\FlipKart_Nav\Pics\map_moment.jpg' # For Round 1
 
     # File Path
-    filename = r'GitFiles\FlipKart_Nav\Files\Co-ordinates_1F.csv'
+    filename = r'GitFiles\FlipKart_Nav\Files\Co-ordinates_1F.csv' # For Round 1
 
     extraction = ImageProcess(img_path, filename)
 
     extraction.cordsExtract()
 
-    img_save = r'GitFiles\FlipKart_Nav\Pics\Blank_1F.png'
+    img_save = r'GitFiles\FlipKart_Nav\Pics\Blank_1.png' # For Round 1
     extraction.imageSave(img_save)
     extraction.cords2CSV()
