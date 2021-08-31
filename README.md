@@ -26,6 +26,9 @@ coordinate value in (x, y) format. DOES NOT CONTAIN DIAGONALS.
 ### [astar_cv2_diagonal.py](https://github.com/Samar2173/FlipKart_Nav/blob/main/Code/astar_cv2_diagonals.py)
 Same as astar_cv2_sides.py but also considers diagonals for optimal path.
 
+### [astar_cv2_straights.py](https://github.com/Samar2173/FlipKart_Nav/blob/main/Code/astar_cv2_straights.py)
+This code gives the path towards goal without diagonals and less number of turns.
+
 ### [live_vid.py](https://github.com/Samar2173/FlipKart_Nav/blob/main/Code/live_vid.py)
 This file helps in taking frames from video or live stream an helps in giving out the path with
 help of live_img.py and astar_cv2_siddes.py.
