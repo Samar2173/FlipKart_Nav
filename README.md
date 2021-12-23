@@ -33,6 +33,9 @@ This code gives the path towards goal without diagonals and less number of turns
 This file helps in taking frames from video or live stream an helps in giving out the path with
 help of live_img.py and astar_cv2_siddes.py.
 
+### [csvReader.py](https://github.com/Samar2173/FlipKart_Nav/blob/main/Fileread/csvReader.py)
+This file converts default csv to list according to different stations.
+
 ## Images Round 1 Only
 
 ### Cropped Input Image
