@@ -7,6 +7,7 @@ class A_Star:
         self.filename = filename
         self.df = pd.read_csv(filename)
         self.dict = self.csv2Dict()
+        print(self.dict)
 
         self.start = self.arrayCord(start)
         self.goal = self.arrayCord(goal)
@@ -222,14 +223,14 @@ def findPath(img_path, file_path, start, goal):
     cv2.waitKey(0)
     cv2.destroyAllWindows()
 
-    cv2.imwrite(r'GitFiles\FlipKart_Nav\Pics\Output_V1.png', img)
+    cv2.imwrite(r'/home/rez3liet/Projects/Flipkart/FlipKart_Nav/Pics/Output_V1.png', img)
 
     return path.pathDict
 
 if __name__ == '__main__':
 
-    img = r'GitFiles\FlipKart_Nav\Pics\Blank_1.png'
-    file = r'GitFiles\FlipKart_Nav\Files\Co-ordinates_1F.csv'
+    img = r'/home/rez3liet/Projects/Flipkart/FlipKart_Nav/Pics/Blank_1.png'
+    file = r'/home/rez3liet/Projects/Flipkart/FlipKart_Nav/Files/Co-ordinates_1F.csv'
     inp_2 = (1457, 220)
     inp_1  = (1035, 703)
 

@@ -19,7 +19,7 @@ def main(file_path, img_path, startPoint, goalPoint, img_save_path = None):
 
 if __name__ == '__main__':
     # Video Path
-    vid_path = r'GitFiles\FlipKart_Nav\Vids\map.mp4'
+    vid_path = r'Vids/map.mp4'
 
     # Loading Video
     cap = cv2.VideoCapture(vid_path)
